@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // CENTRAL REGISTRY: Add, remove, or edit your pages here
   const menuItems = [
     { name: "Main", url: "index.html" },
-    { name: "Shellshockers", url: "shellshockers.html" },
+    { name: "Shellshockers", url: "shellshock.html" },
     //{ name: "Services", url: "services.html" },
     //{ name: "Contact", url: "contact.html" }
   ];
