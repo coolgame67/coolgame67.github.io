@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gist Launcher</title>
+	<!-- 1. External Sidebar CSS Reference -->
+	<link rel="stylesheet" href="sidebar.css">
 	<style>
 		body {
 			font-family: system-ui, -apple-system, sans-serif;
@@ -19,7 +21,8 @@
 			-webkit-user-select: none;
 		}
 
-		button {
+		/* Scoped selector to keep your center button design clean */
+		.launcher-btn {
 			background-color: #6f42c1;
 			color: white;
 			border: none;
@@ -32,7 +35,7 @@
 			transition: background 0.1s;
 		}
 
-		button:hover {
+		.launcher-btn:hover {
 			background-color: #5a32a3;
 		}
 	</style>
@@ -40,10 +43,20 @@
 
 <body>
 
-	<button onclick="runInAboutBlank()">he he he</button>
+	<!-- 2. Sidebar Container Structure (with the required toggle button) -->
+	<div id="sidebar">
+		<button id="sidebar-toggle">☰</button>
+		<nav id="sidebar-nav"></nav>
+	</div>
+
+	<!-- 3. Central Interactive App Launcher Button -->
+	<button class="launcher-btn" onclick="runInAboutBlank()">he he he</button>
+
+	<!-- 4. External Sidebar JS Reference -->
+	<script src="sidebar.js"></script>
 
 	<script>
-		// hehehe
+		// Anti-debugging and Launcher security system
 		const _0x5a1b = "aHR0cHM6Ly9naXN0LmdpdGh1YnVzZXJjb250ZW50LmNvbS9jb29sZ2FtZTY3L2U1ZGFjNTc5MGRhYmRmMmQ3M2NkZDA3Njc4MjkzY2FlL3Jhdy9mNGQwN2QxYmZiYTA0ZTQxZGQyNGNlMWVkNjkwOTZjM2YzMmZmZmFlL3NoZWxsc2hvY2tlcnMuaHRtbA==";
 
 		// 1. Block Right-Click Context Menu
@@ -51,34 +64,29 @@
 
 		// 2. Block Keyboard Shortcuts (F12, Inspect, View Source, Console)
 		document.addEventListener('keydown', (e) => {
-			// Disable F12
 			if (e.key === 'F12') {
 				e.preventDefault();
 				return false;
 			}
-			// Disable Ctrl+Shift+I / Cmd+Option+I (Inspect Element)
 			if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
 				e.preventDefault();
 				return false;
 			}
-			// Disable Ctrl+Shift+J / Cmd+Option+J (Console panel)
 			if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
 				e.preventDefault();
 				return false;
 			}
-			// Disable Ctrl+U / Cmd+Option+U (View Source code)
 			if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
 				e.preventDefault();
 				return false;
 			}
-			// Disable Ctrl+Shift+C / Cmd+Option+C (Element Selector)
 			if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
 				e.preventDefault();
 				return false;
 			}
 		});
 
-		// 3. Anti-Debugging Loop (Triggers infinitely if DevTools opens)
+		// 3. Anti-Debugging Loop
 		setInterval(function() {
 			(function() {
 				return false;
@@ -92,24 +100,24 @@
 			if (!blankWindow) {
 				alert('Popup blocked! Please allow popups for this file to let it open.');
 				return;
-            }
+			}
 
-            try {
-                const targetUrl = window.atob(_0x5a1b);
-                const response = await fetch(targetUrl);
-                if (!response.ok) throw new Error('Could not fetch the raw file.');
-                
-                const htmlContent = await response.text();
+			try {
+				const targetUrl = window.atob(_0x5a1b);
+				const response = await fetch(targetUrl);
+				if (!response.ok) throw new Error('Could not fetch the raw file.');
+				
+				const htmlContent = await response.text();
 
-                blankWindow.document.open();
-                blankWindow.document.write(htmlContent);
-                blankWindow.document.close();
+				blankWindow.document.open();
+				blankWindow.document.write(htmlContent);
+				blankWindow.document.close();
 
-            } catch (error) {
-                blankWindow.close();
-                alert(`Execution Error: ${error.message}`);
-            }
-        }
+			} catch (error) {
+				blankWindow.close();
+				alert(`Execution Error: ${error.message}`);
+			}
+		}
 	</script>
 
 </body>
