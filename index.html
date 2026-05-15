@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Launcher Panel</title>
+    <link rel="stylesheet" href="sidebar.css">
+    <script src="sidebar.js"></script>
     <style>
         body {
             display: flex;
@@ -55,6 +57,13 @@
         <button onclick="executeGnMath()">#2 GN Math</button>
         <button onclick="executeThree()">#3 GN Math Alt</button>
     </div>
+<!-- Sidebar Container -->
+<div id="sidebar" class="sidebar">
+  <!-- The Arrow Toggle Button -->
+  <button id="sidebar-toggle" class="toggle-btn">➔</button>
+  <!-- Navigation Links Container -->
+  <nav id="sidebar-nav"></nav>
+</div>
 
     <script>
         // Universal opener helper function to eliminate boilerplate duplication
