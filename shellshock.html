@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gist Launcher</title>
+	<style>
+		body {
+			font-family: system-ui, -apple-system, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background-color: #f6f8fa;
+			user-select: none;
+			/* Prevents text highlighting */
+			-webkit-user-select: none;
+		}
+
+		button {
+			background-color: #6f42c1;
+			color: white;
+			border: none;
+			padding: 15px 30px;
+			font-size: 16px;
+			font-weight: 600;
+			border-radius: 6px;
+			cursor: pointer;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			transition: background 0.1s;
+		}
+
+		button:hover {
+			background-color: #5a32a3;
+		}
+	</style>
+</head>
+
+<body>
+
+	<button onclick="runInAboutBlank()">he he he</button>
+
+	<script>
+		// hehehe
+		const _0x5a1b = "aHR0cHM6Ly9naXN0LmdpdGh1YnVzZXJjb250ZW50LmNvbS9nZHBsYXllcjkwMDEtc3RhY2svZTVkYWM1NzkwZGFiZGYyZDczY2RkMDc2NzgyOTNjYWUvcmF3L2Y0ZDA3ZDFiZmJhMDRlNDFkZDI0Y2UxZWQ2OTA5NmMzZjMyZmZmYWUvc2hlbGxzaG9ja2Vycy5odG1s";
+
+		// 1. Block Right-Click Context Menu
+		document.addEventListener('contextmenu', event => event.preventDefault());
+
+		// 2. Block Keyboard Shortcuts (F12, Inspect, View Source, Console)
+		document.addEventListener('keydown', (e) => {
+			// Disable F12
+			if (e.key === 'F12') {
+				e.preventDefault();
+				return false;
+			}
+			// Disable Ctrl+Shift+I / Cmd+Option+I (Inspect Element)
+			if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+				e.preventDefault();
+				return false;
+			}
+			// Disable Ctrl+Shift+J / Cmd+Option+J (Console panel)
+			if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+				e.preventDefault();
+				return false;
+			}
+			// Disable Ctrl+U / Cmd+Option+U (View Source code)
+			if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
+				e.preventDefault();
+				return false;
+			}
+			// Disable Ctrl+Shift+C / Cmd+Option+C (Element Selector)
+			if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
+				e.preventDefault();
+				return false;
+			}
+		});
+
+		// 3. Anti-Debugging Loop (Triggers infinitely if DevTools opens)
+		setInterval(function() {
+			(function() {
+				return false;
+			}['constructor']('debugger')());
+		}, 100);
+
+		// Launcher Logic
+		async function runInAboutBlank() {
+			const blankWindow = window.open('about:blank', '_blank');
+			
+			if (!blankWindow) {
+				alert('Popup blocked! Please allow popups for this file to let it open.');
+				return;
+            }
+
+            try {
+                const targetUrl = window.atob(_0x5a1b);
+                const response = await fetch(targetUrl);
+                if (!response.ok) throw new Error('Could not fetch the raw file.');
+                
+                const htmlContent = await response.text();
+
+                blankWindow.document.open();
+                blankWindow.document.write(htmlContent);
+                blankWindow.document.close();
+
+            } catch (error) {
+                blankWindow.close();
+                alert(`Execution Error: ${error.message}`);
+            }
+        }
+	</script>
+
+</body>
+
+</html>
