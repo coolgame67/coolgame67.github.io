@@ -1,0 +1,50 @@
+/* Sidebar hidden by default off-screen left */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #222;
+  color: #fff;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+/* Class added by JS to slide the sidebar into view */
+.sidebar.open {
+  left: 0;
+}
+
+/* Position arrow button on the right outer edge of the sidebar */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  left: 250px;
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow 180 degrees when sidebar opens */
+.sidebar.open .toggle-btn {
+  transform: rotate(180deg);
+}
+
+/* Navigation link layout */
+.sidebar nav a {
+  display: block;
+  color: #fff;
+  padding: 15px;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar nav a:hover {
+  background: #444;
+}
