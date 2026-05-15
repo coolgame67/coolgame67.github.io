@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Launcher Panel</title>
     <link rel="stylesheet" href="sidebar.css">
-    <script src="sidebar.js"></script>
+    <!-- REMOVED THE JS LINK FROM HERE TO PREVENT SCRIPT BREAKAGE -->
     <style>
         body {
             display: flex;
@@ -39,7 +39,6 @@
             background: #333;
             border-color: #666;
         }
-        /* Highlight styling for Shell Shockers */
         #launchBtn {
             background: #f05a28;
             border-color: #ff7342;
@@ -57,13 +56,12 @@
         <button onclick="executeGnMath()">#2 GN Math</button>
         <button onclick="executeThree()">#3 GN Math Alt</button>
     </div>
-<!-- Sidebar Container -->
-<div id="sidebar" class="sidebar">
-  <!-- The Arrow Toggle Button -->
-  <button id="sidebar-toggle" class="toggle-btn">➔</button>
-  <!-- Navigation Links Container -->
-  <nav id="sidebar-nav"></nav>
-</div>
+
+    <!-- Sidebar Container -->
+    <div id="sidebar" class="sidebar">
+        <button id="sidebar-toggle" class="toggle-btn">➔</button>
+        <nav id="sidebar-nav"></nav>
+    </div>
 
     <script>
         // Universal opener helper function to eliminate boilerplate duplication
@@ -103,7 +101,7 @@
         }
 
         async function executeThree() {
-            const url = 'https://gist.githubusercontent.com/gdplayer9001-stack/59d6a8b124e82fba41bed018d8aade56/raw/492db0757bd03c3b3dd04ec65fdc0f0a7297258b/gistfile1.html';
+            const url = 'https://gist.githubusercontent.com/coolgame67/59d6a8b124e82fba41bed018d8aade56/raw/492db0757bd03c3b3dd04ec65fdc0f0a7297258b/gistfile1.html';
             try {
                 const response = await fetch(url);
                 if (!response.ok) throw new Error(`Status: ${response.status}`);
@@ -113,8 +111,9 @@
                 alert(`Button 3 Failed: ${error.message}`);
             }
         }
-        // https://jsitor.com/embed/3ZCiH53DzV 
-
     </script>
+
+    <!-- PLACED SIDEBAR JS LINK HERE SO IT LOADS AFTER THE HTML STRUCTURE IS READY -->
+    <script src="sidebar.js?v=2"></script>
 </body>
 </html>
