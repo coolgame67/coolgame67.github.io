@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // CENTRAL REGISTRY: Add, remove, or edit your pages here
   const menuItems = [
-    { name: "Home", url: "index.html" },
-    { name: "About Us", url: "about.html" },
-    { name: "Services", url: "services.html" },
-    { name: "Contact", url: "contact.html" }
+    { name: "Main", url: "index.html" },
+    { name: "Shellshockers", url: "shellshockers.html" },
+    //{ name: "Services", url: "services.html" },
+    //{ name: "Contact", url: "contact.html" }
   ];
 
   // Auto-generate HTML links from the array
