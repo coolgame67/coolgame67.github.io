@@ -19,10 +19,23 @@
 			user-select: none;
 			/* Prevents text highlighting */
 			-webkit-user-select: none;
+			position: relative;
+			overflow: hidden;
+		}
+
+		/* Forces sidebar out of the flex layout flow */
+		#sidebar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			z-index: 1000;
 		}
 
 		/* Scoped selector to keep your center button design clean */
 		.launcher-btn {
+			position: relative;
+			z-index: 1;
 			background-color: #6f42c1;
 			color: white;
 			border: none;
