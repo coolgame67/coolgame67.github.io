@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuItems = [
     { name: "Main", url: "index.html" },
     { name: "Shellshockers", url: "shellshock.html" },
-    //{ name: "Services", url: "services.html" },
+    { name: "Space waves", url: "spacewaves.html" },
     //{ name: "Contact", url: "contact.html" }
   ];
 
